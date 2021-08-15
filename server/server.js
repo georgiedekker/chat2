@@ -17,7 +17,9 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
                 origin: ['http://localhost:8080',
-                'http://localhost:3000']
+                'http://localhost:3000',
+                'cors-anywhere.herokuapp.com:3000',
+                'cors-anywhere.herokuapp.com:8080']
   }
 });
 
@@ -169,7 +171,7 @@ function newUser(userName){
             };
 
 
-http.listen(3000, function() {
+http.listen(process.env.PORT || 3000, function() {
               console.log('listening on 3000 http')
             })
 // app.listen(3000, function() {
