@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true }))
 const url = process.env.DB_URL
-app.use(cors({origin: ['http://localhost:3000', 'http://localhost:8080', url],
+app.use(cors({origin: ['http://localhost:3000', 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:3000', 'cors-anywhere.herokuapp.com:8080'],
 optionsSuccessStatus: 200 }));
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
