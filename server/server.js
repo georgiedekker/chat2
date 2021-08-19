@@ -17,7 +17,10 @@ optionsSuccessStatus: 200 }));
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
-               origin: '*'
+    origin: "192.168.2.6:8080",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true
   }
 });
 

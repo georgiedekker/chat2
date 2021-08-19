@@ -63,6 +63,9 @@ else{console.log('messages from local storage '+userList.length)}
 let user = reactive({name: 'someName'+10000})
 let userName = user.name
 let socket = io(process.env.VUE_APP_SOCKET_ENDPOINT, {
+                withCredentials: true,
+                extraHeaders: {
+                            "my-custom-header": "abcd"},
                 auth: {
                 token: 'abc',
                 name: userName
