@@ -23,7 +23,10 @@ const io = require('socket.io')(http, {
                 'cors-anywhere.herokuapp.com:'+port,
                 'cors-anywhere.herokuapp.com:8080',
               'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:'+port,
-            'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:8080']
+            'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:8080',
+          'https://vue3chatsocketioexpress.herokuapp.com',
+        'https://vue3chatsocketioexpress.herokuapp.com/',
+      'https://vue3chatsocketioexpress.herokuapp.com:3000']
   }
 });
 
