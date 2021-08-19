@@ -62,10 +62,10 @@ else{console.log('messages from local storage '+userList.length)}
 // console.log('localStorage: '+Object.entries(localStorage))
 let user = reactive({name: 'someName'+10000})
 let userName = user.name
-let socket = io(process.env.VUE_APP_SOCKET_ENDPOINT, {
+let socket = io(process.env.VUE_APP_SOCKET_ENDPOINT+':3000', {
                 withCredentials: true,
                 extraHeaders: {
-                            "my-custom-header": "abcd"},
+                            "Access-Control-Allow-Origin": "abcd"},
                 auth: {
                 token: 'abc',
                 name: userName
