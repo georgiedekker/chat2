@@ -17,18 +17,20 @@ optionsSuccessStatus: 200 }));
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
-                origin: ['http://192.168.2.6:8080/',
-                'http://localhost:8080',
-                'http://localhost:3000',
-                'cors-anywhere.herokuapp.com:'+port,
-                'cors-anywhere.herokuapp.com:8080',
-              'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:'+port,
-            'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:8080',
-          'https://vue3chatsocketioexpress.herokuapp.com',
-        'https://vue3chatsocketioexpress.herokuapp.com/',
-      'https://vue3chatsocketioexpress.herokuapp.com:3000']
+               origin: '*'
   }
 });
+
+//  origin: ['http://192.168.2.6:8080/',
+      //           'http://localhost:8080',
+      //           'http://localhost:3000',
+      //           'cors-anywhere.herokuapp.com:'+port,
+      //           'cors-anywhere.herokuapp.com:8080',
+      //         'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:'+port,
+      //       'https://611ebaf485726653be7bab67--eloquent-lalande-af32e9.netlify.app:8080',
+      //     'https://vue3chatsocketioexpress.herokuapp.com',
+      //   'https://vue3chatsocketioexpress.herokuapp.com/',
+      // 'https://vue3chatsocketioexpress.herokuapp.com:3000']
 
 
 app.get('/', (req, res) => {

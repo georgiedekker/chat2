@@ -70,6 +70,7 @@ let socket = io(process.env.VUE_APP_SOCKET_ENDPOINT, {
 
   });
 
+
 socket.on('connection-succes', userFromServer =>{
     console.log('user from server: '+JSON.stringify(userFromServer))
     // userFromServer.name = userN!=''?userN:userFromServer.name
