@@ -12,7 +12,7 @@ app.use(moment)
 // app.use(cors({
 //               origin: ['http://localhost:8080',
 //               'http://localhost:3000',
-//               'http://localhost:3000/socket.io'],
+//               'http://localhost:3000/socket.io', 'https://vue3chatsocketioexpress.herokuapp.com/'],
 //               optionsSuccessStatus: 200 
 // }));
 app.mount('#app')
