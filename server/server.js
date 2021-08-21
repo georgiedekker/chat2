@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true }))
 const url = process.env.DB_URL
+console.log('db url is: '+url)
 const port = process.env.PORT || 3000
 app.use(cors({origin: ['http://localhost:'+port, 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:'+port, 'cors-anywhere.herokuapp.com:8080', 'https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080','https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:'+port, "https://eloquent-lalande-af32e9.netlify.app/", "https://eloquent-lalande-af32e9.netlify.app:"+port],
 optionsSuccessStatus: 200 }));
