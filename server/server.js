@@ -12,13 +12,13 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true }))
 const url = process.env.DB_URL
 const port = process.env.PORT || 3000
-app.use(cors({origin: ['http://localhost:'+port, 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:'+port, 'cors-anywhere.herokuapp.com:8080', 'https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080','https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:'+port],
+app.use(cors({origin: ['http://localhost:'+port, 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:'+port, 'cors-anywhere.herokuapp.com:8080', 'https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080','https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:'+port, "https://eloquent-lalande-af32e9.netlify.app/", "https://eloquent-lalande-af32e9.netlify.app:"+port],
 optionsSuccessStatus: 200 }));
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
     origin:["https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080",
-                "http:localhost:8080",
+                "http://localhost:8080",
               "https://vue3chatsocketio.herokuapp.com/",
             "https://eloquent-lalande-af32e9.netlify.app/",
             "https://eloquent-lalande-af32e9.netlify.app:8080"],
