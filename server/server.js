@@ -102,7 +102,7 @@ async function mainLoad(room) {
               
               
                 // findResult = await collection.find({}).limit(250).toArray()
-                if(findResult==null){return}
+                if(findResult==null){findResult=[]}
               console.log('findResult?.length: '+findResult?.length)
               //             console.log('Found documents =>', findResult)
               data = {result: findResult}
