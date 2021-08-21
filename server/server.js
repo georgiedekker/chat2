@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 const url = process.env.DB_URL
 console.log('db url is: '+url)
 const port = process.env.PORT || 3999
-app.use(cors({origin: ['http://localhost:'+port, 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:'+port, 'cors-anywhere.herokuapp.com:8080', 'https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080','https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:'+port, "https://eloquent-lalande-af32e9.netlify.app/", "https://eloquent-lalande-af32e9.netlify.app:"+port],
+app.use(cors({origin: ['http://localhost:'+port, 'http://localhost:8080', url, 'cors-anywhere.herokuapp.com:'+port, 'cors-anywhere.herokuapp.com:8080', 'https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:8080','https://611ed10c61ab8361c03cf96b--eloquent-lalande-af32e9.netlify.app:'+port, "https://eloquent-lalande-af32e9.netlify.app/", "https://eloquent-lalande-af32e9.netlify.app:"+port, "ws://eloquent-lalande-af32e9.netlify.app/*", "ws://eloquent-lalande-af32e9.netlify.app/"],
 optionsSuccessStatus: 200 }));
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
@@ -25,6 +25,10 @@ const io = require('socket.io')(http, {
             "https://eloquent-lalande-af32e9.netlify.app",
             "https://eloquent-lalande-af32e9.netlify.app/:443",
             "https://eloquent-lalande-af32e9.netlify.app:443",
+            "ws://eloquent-lalande-af32e9.netlify.app/",
+            "ws://eloquent-lalande-af32e9.netlify.app",
+            "ws://eloquent-lalande-af32e9.netlify.app/:443",
+            "ws://eloquent-lalande-af32e9.netlify.app:443",
             "*",
             "https://eloquent-lalande-af32e9.netlify.app:8080"],
     methods: ["GET", "POST"],
