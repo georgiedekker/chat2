@@ -62,7 +62,7 @@ app.post('/', (req, res) => {
 
 
 let history = [{room:'', chats:[]}]
-let room = ''
+let room = 'noRoom'
 let rooms = []
 let userName = ''
 let messages = []
@@ -73,7 +73,7 @@ const client = new MongoClient(url)
 // Database Name
 const dbName = 'Cluster0'
 
-async function main(user, message) {
+async function main(user, message, room) {
   // Use connect method to connect to the server
   await client.connect()
   console.log('Connected successfully to server')
@@ -149,7 +149,7 @@ io.on('connection', (socket) => {
                             const received = {message: message, user: user}
                             console.log('received.message: '+received.message)
                             //post to MongoDB
-                            main(user, message)
+                            main(user, message, room)
                             io.emit('chat-message', received)
                             socket.emit('chat-message',{message:'received your message',user:received.user})
                             // }
@@ -201,7 +201,7 @@ function newUser(userName){
 
 
 http.listen(port, function() {
-              console.log('listening on '+port+' http')
+              console.log('listening on '+port)
             })
 // app.listen(3000, function() {
 //               console.log('listening on 3000 app')
