@@ -103,6 +103,7 @@ async function mainLoad(room) {
 io.on('connection', (socket) => {
               //receive token from client
               // socket.join(defRoom)
+              console.log('connection made')
               let token = socket.handshake.auth.token;
               if(token){console.log('handshake succes '+token.toString())}
               // console.log(socket.handshake.auth.name)
@@ -121,6 +122,7 @@ io.on('connection', (socket) => {
                             return user
                           })
               socket.on('join-room', (roomToGo, user) => {
+                console.log('joining room '+roomToGo.name)
                 socket.join(roomToGo.name)
                 socket.emit('room-joined',userList, messages)
               })
