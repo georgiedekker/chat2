@@ -73,22 +73,22 @@ const client = new MongoClient(url)
 // Database Name
 const dbName = 'Cluster0'
 
-// async function main() {
-//   // Use connect method to connect to the server
-//   await client.connect()
-//   console.log('Connected successfully to server')
-//   const db = client.db(dbName)
-//   const collection = db.collection(colName)
+async function main(user, message) {
+  // Use connect method to connect to the server
+  await client.connect()
+  console.log('Connected successfully to server')
+  const db = client.db(dbName)
+  const collection = db.collection(colName)
 
-//   // the following code examples can be pasted here...
-//   const insertResult = await collection.insertOne({user:user, message:message})
-//   console.log('Inserted documents =>', insertResult+' '+moment(user.timeStamp).format('HH:mm:ss'))
+  // the following code examples can be pasted here...
+  const insertResult = await collection.insertOne({user:user, message:message})
+  console.log('Inserted documents =>', insertResult+' '+moment(user.timeStamp).format('HH:mm:ss'))
 
-// //   const findResult = await collection.find({}).toArray()
-// //               console.log('Found documents =>', findResult)
+//   const findResult = await collection.find({}).toArray()
+//               console.log('Found documents =>', findResult)
 
-//   return 'done.'
-// }
+  return 'done.'
+}
 
 async function mainLoad(room) {
               // Use connect method to connect to the server
@@ -149,6 +149,7 @@ io.on('connection', (socket) => {
                             const received = {message: message, user: user}
                             console.log('received.message: '+received.message)
                             //post to MongoDB
+                            main(user, message)
                             io.emit('chat-message', received)
                             socket.emit('chat-message',{message:'received your message',user:received.user})
                             // }
